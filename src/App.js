@@ -27,8 +27,9 @@ class Container extends React.Component {
         <div>
           <div id="divRes">
             <h1 className="text-center">Чат</h1>
+            <textarea className="textareaRes" placeholder="Тут будет история сообщений..." name="hist_message"></textarea>
             <form name="publish">
-              <textarea id="textareaRes" placeholder="Введите сообщение..." name="message"></textarea>
+              <textarea className="textareaRes" placeholder="Введите сообщение..." name="message"></textarea>
               <input className="full-button round-button" type="submit" value="Отправить"></input>
             </form>
             

@@ -16,7 +16,7 @@ WebSocket();
 
 
 function res(width, height, timeout, validation) {
-  var item = document.querySelector('#textareaRes');
+  var item = document.querySelector('.textareaRes');
   var div=document.querySelector('#divRes');
 	
   if((width == item.offsetWidth) && (height == item.offsetHeight)) {
@@ -24,7 +24,7 @@ function res(width, height, timeout, validation) {
     if(validation) {
       console.log("size resize ++++");
       console.log(div.clientWidth- height+"px");
-      div.style.width = item.offsetWidth+2+"px";  
+      //div.style.width = div.clientWidth - height+"px";  
     } else {
       timeout = 0;
     }		
