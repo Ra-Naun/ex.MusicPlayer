@@ -12,21 +12,40 @@
 <script src="app.js"></script>
 <script type="text/babel">
 
-    
-    class PlayButton extends React.Component {
-        render()
-        {
-            return (
-                <a href="#" title="Play video" className="play"/>
-            )
-        }
+    function PlayButton(props) {
+        const className = props.isMusicPlaying ? 'play active' : 'play';
+
+        return <a href="#" onClick={props.onClick} title="Play video" className={className} />;
     }
 
     class Container extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { isMusicPlaying: false };
+        }
+
+        handleClick(event) {
+            this.setState(prevState=>{
+                return {isMusicPlaying:!prevState.isMusicPlaying}
+            })
+            
+            if(this.state.isMusicPlaying)
+                this.audio.pause();
+            else 
+                this.audio.play();
+        };
+
+
         render() {
+            const status = this.state.isMusicPlaying ? 'Playing' : 'Not playing';
             return (
             <div>
-                <PlayButton />
+                <h1 onClick={this.handleClick.bind(this)}>{ status }</h1>
+                <PlayButton 
+                    onClick={this.handleClick.bind(this)}
+                    isMusicPlaying={this.state.isMusicPlaying} 
+                />
+                <audio id="audio" ref={tegAudio=>{this.audio=tegAudio}}/>
             </div>
             );
         }
