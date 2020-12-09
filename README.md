@@ -1,2 +1,2 @@
 # ex.MusicPlayer
-Demo: 
+Demo: https://slavskiy-dm.github.io/ex.MusicPlayer/
